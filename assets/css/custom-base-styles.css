@@ -1,0 +1,11 @@
+html {
+	@apply w-full h-full overflow-hidden text-[62.5%];
+}
+
+body { 
+	@apply text-[1.6rem] bg-white;
+}
+
+.element::-webkit-scrollbar { @apply w-0; }
+
+::-webkit-scrollbar { @apply w-0; }

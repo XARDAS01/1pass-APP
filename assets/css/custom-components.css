@@ -1,0 +1,76 @@
+/* MAIN BUTTONS */
+.btn {
+  @apply w-full max-w-[25rem] h-[4rem] border border-brandColorMain rounded-[0.5rem] text-[1.6rem] duration-[0.3s] font-bold uppercase;
+}
+
+.btn:hover { @apply duration-[0.3s]; cursor: pointer; }
+
+.btn-fill--light { @apply bg-brandColorMain text-white; }
+
+.btn-fill--light:hover { @apply bg-white text-brandColorMain; }
+
+.btn-outline--light { @apply border-brandColorMain text-brandColorMain; }
+
+.btn-outline--light:hover { @apply bg-brandColorMain text-white; }
+
+/* CIRCLE BUTTON */
+.btn-circle {
+  @apply w-[6rem] h-[6rem] border-[0.2rem] rounded-[3rem] text-[3.4rem] duration-[0.4s];
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-circle:hover {
+	@apply duration-[0.4s];
+}
+
+.btn-circle--dark {
+  @apply border-brandColorMain bg-brandColorMain text-white;
+}
+
+.btn-circle--dark:hover {
+  @apply bg-white text-brandColorSecond;
+}
+
+/* ARROWS */
+.arw {
+	box-sizing: border-box;
+	width: 30px;
+	height: 30px;
+
+	margin-left: 10px;
+}
+
+.arw-top {
+	transform: rotate(-45deg);
+}
+
+.arw-right {
+	transform: rotate(45deg);
+}
+
+.arw-left {
+	transform: rotate(225deg);
+}
+
+.arw-bottom {
+	transform: rotate(-225deg);
+}
+
+.arw--light::before {
+	border-color: white;
+}
+
+.arw--dark::before {
+	border-color: black;
+}
+
+.arw::before {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-style: solid;
+	border-width: 3.5px 3.5px 0 0;
+	transform-origin: 100% 0;
+	transition: 0.2s ease;
+	content: "";
+}
