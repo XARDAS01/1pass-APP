@@ -2,7 +2,7 @@
   <div class="services">
     <div 
       class="services__list list"
-      v-for="card of servicesCard"
+      v-for="card of serviceList.get"
       :key="card.id"
     >
     <ServicesListCard 
@@ -16,10 +16,8 @@
 </template>
 
 <script setup>
-const servicesCard = ref([
-  { id: 1, name: 'facebook', icon: 'url', password: 'pass' },
-  { id: 2, name: 'twitter', icon: 'url', password: 'pass' }
-]);
+import { useServiceStore } from '~/store/service'
+const serviceList = useServiceStore();
 </script>
 
 <style scoped>

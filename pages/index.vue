@@ -4,7 +4,7 @@
       <section class="list__item list__stats">
         <div class="list__stats__item">
           <span class="list__stats__item__title">
-            5
+            {{ serviceList.getLength }}
           </span>
           <p class="list__stats__item__desc">
             passwords stored
@@ -28,13 +28,12 @@
 </template>
 
 <script setup>
-useMeta({
-  title: 'Home page'
-});
+import { useServiceStore } from '~/store/service'
 
-definePageMeta({
-  layout: "default",
-});
+useMeta({ title: 'Home page' });
+definePageMeta({ layout: "default" });
+
+const serviceList = useServiceStore();
 </script>
 
 <style scoped>

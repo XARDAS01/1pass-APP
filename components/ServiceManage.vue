@@ -1,7 +1,7 @@
 <template>
   <div class="service-manage">
     <div class="service-manage__header header">
-      <h1 class="header__title">{{ props.HTitle }}</h1>
+      <h1 class="header__title layout-editing__header__title">{{ props.HTitle }}</h1>
     </div>
 
     <div class="service-manage__content content">
@@ -39,6 +39,7 @@
 </template>
 
 <script setup>
+import { useServiceStore } from '~/store/service';
 const props = defineProps({
   HTitle: {
     type: String,
@@ -55,12 +56,11 @@ const service = reactive({
   login: '',
   password: ''
 });
+const submit = () => { if (useServiceStore().add(service)) { useRouter().push('/') } };
 </script>
 
 <style scoped>
-.header__title {
-  @apply text-[5rem] text-brandColorSecond font-bold mb-[5rem] uppercase;
-}
+/* .header__title { } */
 
 .content__form {
   @apply flex flex-col items-center;

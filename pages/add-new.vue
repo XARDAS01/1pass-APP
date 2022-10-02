@@ -6,6 +6,6 @@
 </template>
 
 <script setup>
-  useMeta({ title: 'Create service' });
-  definePageMeta({ layout: "editing" });
+useMeta({ title: 'Create service' });
+definePageMeta({ layout: "editing" });
 </script>
