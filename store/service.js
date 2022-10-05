@@ -10,12 +10,23 @@ export const useServiceStore = defineStore('serviceStore', {
   }),
   getters: {
     get: (state) => state.serviceList,
+    getServiceByName: (state) => {
+      return (name) => state.serviceList.find((service) => service.name === name);
+    },
     getLength (state) { return this.serviceList.length },
   },
   actions: {
     add (service) {
       try {
         this.serviceList.push(service);
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    delete (service) {
+      try {
+        this.serviceList.splice(this.serviceList.indexOf(service), 1);
         return true;
       } catch {
         return false;

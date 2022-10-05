@@ -26,9 +26,11 @@
           <input v-model="service.password" type="text" id="password" name="password">
         </div>
 
-        <button class="content__form__generateBtn btn btn-outline--light" type="button">
-          Generate new
-        </button>
+        <PasswordGenerate 
+          class="content__form__generateBtn"
+          @passwordGenerate="passwordGenerate"
+        />
+        
         <button class="content__form__submit btn btn-fill--light" type="submit">
           {{ props.FTitle }}
         </button>
@@ -50,6 +52,7 @@ const props = defineProps({
     required: true
   }
 });
+const passwordGenerate = (password) => { service.password = password };
 const service = reactive({
   name: '',
   url: '',
@@ -75,7 +78,7 @@ const submit = () => { if (useServiceStore().add(service)) { useRouter().push('/
 }
 
 .content__form__group input {
-  @apply w-full h-[3rem] border rounded-[0.5rem];
+  @apply w-full h-[4rem] border rounded-[0.5rem] px-[1rem];
 }
 
 .content__form__generateBtn {

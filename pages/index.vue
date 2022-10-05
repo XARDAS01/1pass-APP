@@ -15,6 +15,7 @@
       <section class="list__item list__search">
         <input 
           class="list__search__input" 
+          disabled
           type="text"
           placeholder="Search Service"
         >

@@ -4,7 +4,7 @@
       <nuxt-link class="footer__list__item" to="/">
         home
       </nuxt-link>
-      <nuxt-link class="footer__list__item footer__list__item--button btn-circle btn-circle--dark" to="/add-new">
+      <nuxt-link class="footer__list__item footer__list__item--button btn-circle btn-circle--dark" to="/service/create">
         <i>+</i>
       </nuxt-link>
       <nuxt-link class="footer__list__item" to="/profile">

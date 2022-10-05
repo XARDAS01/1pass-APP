@@ -1,9 +1,7 @@
 <template>
   <div class="card">
     <div class="card__list list">
-      <div class="list__item list__icon" @click="redirect">
-        <!-- {{ icon }} -->
-      </div>
+      <img class="list__item list__icon" src="https://picsum.photos/200/300" @click="redirect" />
 
       <div class="list__item list__name" @click="redirect">
         {{ name }}
@@ -33,10 +31,7 @@ const props = defineProps({
 });
 
 const router = useRouter();
-
-const redirect = function() {
-  router.push('/service/' + props.name);
-};
+const redirect = function() { router.push('/service/' + props.name) };
 
 const copy = function() {
   alert('copy');
