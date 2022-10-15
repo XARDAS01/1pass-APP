@@ -1,4 +1,10 @@
 {
+  "name": "onepass-app",
+  "description": "password manager app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.16.0"
+  },
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -6,18 +12,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "heroku-postbuild": "npm run build",
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",
     "@pinia/nuxt": "^0.4.2",
     "nuxt": "3.0.0-rc.11"
-  },
-  "name": "onepass-app",
-  "description": "a really cool app",
-  "version": "1.0.0",
-  "engines": {
-    "node": "16.16.0"
   }
 }
