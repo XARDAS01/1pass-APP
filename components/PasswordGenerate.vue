@@ -14,7 +14,7 @@ const emit = defineEmits([ 'passwordGenerate' ]);
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 const numbers = "0123456789";
 const specialSign = "!@#$*?";
-const passwordLength = 26;
+const passwordLength = 16;
 
 const passwordGenerate = () => {
   var passwordSignArray = (alphabet + alphabet.toUpperCase() + numbers + specialSign).split("");

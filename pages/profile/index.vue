@@ -1,7 +1,7 @@
 <template>
-  <div class="profile">
+  <div class="profile" v-if="user.get">
     <div class="profile__header header">
-      <h1 class="header__title layout-editing__header__title">Profile</h1>
+      <h1 class="header__title layout-default__header__title">Profile</h1>
     </div>
 
     <div class="profile__main main">
@@ -20,7 +20,7 @@
         <span
           class="main__list__item main__list__email"
         >
-          {{ user.get.email }}
+          {{ user.get.emailAdress }}
         </span>
       </div>
     </div>
@@ -34,7 +34,7 @@
       <button 
         class="footer__button"
         type="button"
-        @click=""
+        @click="logout"
       >
         Logout
       </button>
@@ -43,12 +43,21 @@
 </template>
 
 <script setup>
-import { useUserStore } from '~/store/service';
+import { useUserStore } from '~/store/user'
+import { useAuthStore } from '~/store/auth'
 
 useMeta({ title: 'Profile' });
-definePageMeta({ layout: "default" });
+definePageMeta({ layout: 'default' });
 
 const user = useUserStore();
+const auth = useAuthStore();
+
+const logout = () => {
+  localStorage.removeItem('token');
+  user.remove();
+  auth.logout();
+  useRouter().push('/auth/login');
+};
 </script>
 
 <style scoped>

@@ -38,15 +38,15 @@
 
 <script setup>
 import { useServiceStore } from '~/store/service';
+import { useAuthStore } from '~/store/auth';
 
 useMeta({ title: 'Saved Service' });
 definePageMeta({ layout: "editing" });
 
 const route = useRoute();
-const store = useServiceStore();
-const service = store.getServiceByName(useRoute().params.service);
+const service = useServiceStore().getServiceByName(useRoute().params.service);
 
-const serviceDelete = () => { if (store.delete(service)) { useRouter().push('/') } };
+const serviceDelete = () => { useServiceStore().delete(service, useAuthStore().getToken) };
 </script>
 
 <style scoped>

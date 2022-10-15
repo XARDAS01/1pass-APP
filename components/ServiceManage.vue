@@ -42,6 +42,8 @@
 
 <script setup>
 import { useServiceStore } from '~/store/service';
+import { useAuthStore } from '~/store/auth';
+
 const props = defineProps({
   HTitle: {
     type: String,
@@ -59,7 +61,7 @@ const service = reactive({
   login: '',
   password: ''
 });
-const submit = () => { if (useServiceStore().add(service)) { useRouter().push('/') } };
+const submit = () => { useServiceStore().add(service, useAuthStore().getToken) };
 </script>
 
 <style scoped>

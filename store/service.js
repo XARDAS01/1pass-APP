@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia';
+import axios from 'axios';
 
 export const useServiceStore = defineStore('serviceStore', {
   state: () => ({
-    serviceList: [
-      { id: 1, name: 'facebook', password: 'pass', url: 'url' },
-      { id: 2, name: 'twitter', password: 'pass', url: 'url' },
-      { id: 3, name: 'vk', password: 'pass', url: 'url' }
-    ],
+    // serviceList: [
+    //   { id: 1, name: 'facebook', password: 'pass', url: 'url' },
+    //   { id: 2, name: 'twitter', password: 'pass', url: 'url' },
+    //   { id: 3, name: 'vk', password: 'pass', url: 'url' }
+    // ],
+    serviceList: []
   }),
   getters: {
     get: (state) => state.serviceList,
@@ -16,37 +18,49 @@ export const useServiceStore = defineStore('serviceStore', {
     getLength (state) { return this.serviceList.length },
   },
   actions: {
-    add (service) {
-      try {
-        this.serviceList.push(service);
-        return true;
-      } catch {
-        return false;
-      }
-    },
-    delete (service) {
-      try {
-        this.serviceList.splice(this.serviceList.indexOf(service), 1);
-        return true;
-      } catch {
-        return false;
-      }
-    }
-  }
-});
+    load (token) {
+      axios
+        .get('https://webapplication-1pass-api.herokuapp.com/api/v1/services', {
+          params: { token }
+        })
+        .then(response => {
+          if (response.data.code === 200 && response.data.message === "ok") {
+            this.serviceList = response.data.payload;
+          }
 
-export const useUserStore = defineStore('userStore', {
-  state: () => ({
-    name: 'James',
-    surname: 'Smith',
-    login: 'login',
-    email: 'email@mail.com',
-    password: 'pass',
-    icon: 'icon',
-  }),
-  getters: {
-    get: (state) => state,
-    getFullName (state) { return this.name + ' ' + this.surname }
-  },
-  actions: { }
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    },
+    add (service, token) {
+      axios
+        .post('https://webapplication-1pass-api.herokuapp.com/api/v1/services?token=' + token, service)
+        .then(response => {
+          if (response.data.code === 200 && response.data.message === "ok") {
+            this.serviceList.push(service);
+          }
+
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    delete (service, token) {
+      axios
+        .delete('https://webapplication-1pass-api.herokuapp.com/api/v1/services/' + service.id  + '?token=' + token)
+        .then(response => {
+          if (response.data.code === 200 && response.data.message === "ok") {
+            this.serviceList.splice(this.serviceList.indexOf(service), 1);
+          }
+
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+  }
 });
