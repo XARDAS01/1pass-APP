@@ -5,9 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "heroku-postbuild": "npm run build",
-    "start": "node .output/server/index.mjs"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.3",
