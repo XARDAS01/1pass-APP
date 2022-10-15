@@ -24,7 +24,7 @@
     <div class="service__footer footer">
       <div class="footer__list">
         <button class="footer__list__item btn btn-outline--light" type="button" @click="serviceDelete">Delete</button>
-        <button class="footer__list__item btn btn-fill--light" type="button" @click="">Update</button>
+        <button class="footer__list__item btn btn-fill--light" disabled type="button" @click="">Update</button>
       </div>
     </div>
   </div>
@@ -50,6 +50,9 @@ const serviceDelete = () => { useServiceStore().delete(service, useAuthStore().g
 </script>
 
 <style scoped>
+.footer {
+  @apply py-[3rem];
+}
 .footer__list {
   @apply flex flex-row justify-center flex-nowrap;
 }

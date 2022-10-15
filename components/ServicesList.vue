@@ -21,7 +21,9 @@ const serviceList = useServiceStore();
 </script>
 
 <style scoped>
-/* .services { }  */
+.services {
+  @apply h-full max-h-[68vh] pb-[15vh] overflow-y-auto;
+} 
 
 /* .services__list { }  */
 

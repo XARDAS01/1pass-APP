@@ -49,4 +49,20 @@ watch(() => auth.getStatus, () => {
   .content__form__group input {
     @apply w-full h-[4rem] border rounded-[0.5rem] px-[1rem];
   }
+
+  .content__btn {
+    @apply my-[2rem];
+  }
+
+  .content__footer {
+    @apply text-center;
+  }
+
+  .content__footer__text {
+    @apply text-brandColorSecond;
+  }
+
+  .content__footer__link {
+    @apply font-bold text-brandColorMain uppercase;
+  }
 </style>

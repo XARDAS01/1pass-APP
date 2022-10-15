@@ -13,10 +13,19 @@
 
         <button
           type="submit"
-          class="btn btn-fill--light"
+          class="content__btn btn btn-fill--light"
         >
           Login
         </button>
+
+        <div class="content__footer">
+          <p class="content__footer__text"> 
+            Don't have an account yet?
+          </p>
+          <nuxt-link class="content__footer__link" to="/auth/registration">
+            Registration
+          </nuxt-link>
+        </div>
       </form>
   </div>
 </template>

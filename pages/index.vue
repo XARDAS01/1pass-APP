@@ -22,7 +22,7 @@
       </section>
 
       <ServicesList 
-        class="list__item list__s" 
+        class="list__item" 
       />
     </div>
   </div>
